@@ -1,0 +1,6 @@
+import Link from 'next/link';
+import { store } from '../data/products';
+
+export default function Footer() {
+  return <footer className="site-footer"><div className="container footer-main"><Link href="/" className="wordmark">МАНГАЛ<span className="brand-dot">.</span></Link><p className="footer-statement">Место, где собираются свои.</p><nav aria-label="Навигация в подвале"><Link href="/#catalog">Каталог</Link><Link href="/#about">О нас</Link><Link href="/#delivery">Доставка и оплата</Link><Link href="/#faq">Вопросы и ответы</Link></nav><div id="contacts" className="footer-contact"><span className="eyebrow">Связаться с менеджером</span><p>Поможем выбрать и оформить заказ.</p><div className="contact-buttons">{store.contacts.map(({ label, href }) => href ? <a key={label} href={href} className="contact-button">{label}</a> : <button key={label} type="button" className="contact-button" disabled title="Контакт будет добавлен" aria-label={`${label} — контакт будет добавлен`}>{label}</button>)}</div></div></div><div className="container footer-bottom"><span>© 2026 МАНГАЛ. Все права защищены.</span><Link href="/information">Информация о магазине</Link><span>Сталь. Угли. Хорошая компания.</span></div></footer>;
+}
